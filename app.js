@@ -323,7 +323,7 @@ ${(fpDistricts || []).map((r, $index) => html`
 <span aria-hidden="true" style=${"" + `position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 999px; background: #F5F3ED; border: 3px solid ${accent}`}></span>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px">
 <h3 style="margin: 0; font-family: 'Bricolage Grotesque', Manrope, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em">Software Developer Intern</h3>
-<span style="font-size: 14px; color: #5C635E">Jun 2026 – Present</span>
+<span style="font-size: 14px; color: #5C635E">Jun 2026 – Nov 2026</span>
 </div>
 <div style="margin-top: 2px; font-weight: 600; color: #3F4541">Imuks · Internship</div>
 <div style="font-size: 14px; color: #5C635E">Lusaka, Zambia · Remote</div>
