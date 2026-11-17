@@ -293,7 +293,7 @@ ${(fpDistricts || []).map((r, $index) => html`
 <div style="flex: 1 1 440px; min-width: 0">
 <h2 class="rk-stag" style="--i: 0; margin: 0; font-family: 'Bricolage Grotesque', Manrope, sans-serif; font-weight: 700; font-size: clamp(34px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05">A bit about me</h2>
 <p style="margin: 18px 0 0; color: #3F4541; font-size: 17px">I’m a software developer focused on AI, machine learning and data science, building tools that solve real problems.</p>
-<p style="margin: 12px 0 0; color: #5C635E; font-size: 16px">I’m currently studying Computing at Cavendish University Zambia and working as a Software Developer Intern at Imuks, where I build web and mobile applications.</p>
+<p style="margin: 12px 0 0; color: #5C635E; font-size: 16px">I’m currently studying Computing at Cavendish University Zambia.</p>
 <p style="margin: 12px 0 0; color: #5C635E; font-size: 16px">I’m also building a real-time Zambian Sign Language recognition system using computer vision, to help deaf and hearing people communicate more easily.</p>
 <p style="margin: 12px 0 0; color: #5C635E; font-size: 16px">I hold the IBM AI Engineering certification and DataCamp’s Associate Data Scientist certification.</p>
 <p style="margin: 12px 0 0; color: #5C635E; font-size: 16px">I’m open to full-time roles, collaborations and freelance work in software development, AI and data science. Feel free to <a href="#contact" class="rk-ul" style=${"" + `font-weight: 700; border-bottom: 2px solid ${accent}`}>get in touch</a>.</p>
