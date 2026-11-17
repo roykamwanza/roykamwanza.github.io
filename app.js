@@ -13,7 +13,7 @@ function view($v) {
 <a href="#about" style="color: #5C635E; padding: 10px 0">About</a>
 <a href="#experience" style="color: #5C635E; padding: 10px 0">Experience</a>
 <a href="#contact" style="color: #5C635E; padding: 10px 0">Contact</a>
-<a href="#top" class="rk-btn rk-btn-line" style="padding: 9px 16px; border: 1px solid #202522; border-radius: 8px; font-weight: 600">Résumé</a>
+<a href="assets/Roy_Kamwanza_CV.pdf" download="Roy_Kamwanza_CV.pdf" class="rk-btn rk-btn-line" style="padding: 9px 16px; border: 1px solid #202522; border-radius: 8px; font-weight: 600">Résumé</a>
 </nav>
 <button type="button" class="rk-menu-btn" onClick=${toggleMenu} aria-expanded=${menuExpanded} aria-controls="rk-mobile-menu" aria-label="Menu" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #CFC9BB; border-radius: 10px; background: #FBFAF6; color: #202522; cursor: pointer">
 ${(menuOpen) ? html`
@@ -30,7 +30,7 @@ ${(menuOpen) ? html`
 <a href="#about" onClick=${closeMenu} style="padding: 12px 0; font-weight: 600; border-bottom: 1px solid #ECE9E0">About</a>
 <a href="#experience" onClick=${closeMenu} style="padding: 12px 0; font-weight: 600; border-bottom: 1px solid #ECE9E0">Experience</a>
 <a href="#contact" onClick=${closeMenu} style="padding: 12px 0; font-weight: 600; border-bottom: 1px solid #ECE9E0">Contact</a>
-<a href="#top" onClick=${closeMenu} style=${"" + `padding: 12px 0; font-weight: 600; color: ${accent}`}>Résumé</a>
+<a href="assets/Roy_Kamwanza_CV.pdf" download="Roy_Kamwanza_CV.pdf" onClick=${closeMenu} style=${"" + `padding: 12px 0; font-weight: 600; color: ${accent}`}>Résumé</a>
 </nav>
 ` : null}
 </header>
