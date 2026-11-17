@@ -107,7 +107,7 @@ ${(tabOther) ? html`
 </div>
 <p class="rk-stag" style="--i: 1; flex: 0 1 420px; margin: 0; color: #5C635E">Built around real problems in Zambia: one in computer vision, one in data analysis.</p>
 </div>
-<div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+<div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px">
 ${(projects || []).map((p, $index) => html`
 <article class="rk-card rk-stag" style=${"" + `--i: ${p.i}; display: flex; flex-direction: column; min-width: 0; background: #FBFAF6; border: 1px solid #DDD8CC; border-radius: 16px; padding: 8px; transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease`}>
 <div class=${"" + `rk-media ${p.fxClass}`} style="background: #111412; border-radius: 12px">
@@ -162,7 +162,7 @@ ${(p.isHand) ? html`
 ${(p.stack || []).map((t, $index) => html`<span style="padding: 3px 9px; border-radius: 6px; border: 1px solid #DDD8CC; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px; color: #3F4541">${t}</span>`)}
 </div>
 <div style="margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 4px 22px; border-top: 1px solid #ECE9E0">
-<a href=${p.link} class="rk-ul" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 14.5px; font-weight: 700">${p.linkText}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href=${p.link} target=${p.target} rel="noopener noreferrer" class="rk-ul" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 14.5px; font-weight: 700">${p.linkText}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 ${(p.hasLink2) ? html`<a href=${p.link2} target="_blank" rel="noopener noreferrer" class="rk-ul" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 14.5px; font-weight: 600; color: #5C635E">${p.link2Text}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>` : null}
 </div>
 </div>
@@ -475,7 +475,7 @@ class Component extends DCLogic {
       let t = 0;
       this.countTimer = setInterval(() => {
         t += 1;
-        this.setState({ statA: Math.round(4 * t / 20), statB: Math.round(2 * t / 20), statC: Math.round(47 * t / 20), statD: Math.round(2 * t / 20) });
+        this.setState({ statA: Math.round(4 * t / 20), statB: Math.round(3 * t / 20), statC: Math.round(47 * t / 20), statD: Math.round(2 * t / 20) });
         if (t >= 20) clearInterval(this.countTimer);
       }, 50);
     }, 1200);
@@ -658,8 +658,9 @@ class Component extends DCLogic {
     const accent = this.props.accent ?? '#287A59';
     const filter = st.filter || 'All';
     const all = [
-      { isHand: true, isCar: false, isFilm: false, imgClass: 'rk-img', num: '01', year: '2025–26', stack: ['Python', 'Computer vision', 'Real-time'], imgFilter: 'saturate(.75) sepia(.1)', imgFit: 'cover', link: '#work', linkText: 'Case study coming soon', hasLink2: false, link2: '', link2Text: '', tag: 'Computer Vision & AI', kicker: 'Computer vision · Accessibility', title: 'Zambian Sign Language Recognition', desc: 'Real-time recognition of ZSL from a webcam, so deaf and hearing people can talk without an interpreter.', role: '[Sole engineer: data, model, app]', outcome: '[e.g. accuracy on N signs]', img: 'assets/sign-language.jpg', alt: 'Sign language recognition demo' },
-      { isHand: false, isCar: false, isFilm: false, imgClass: 'rk-img', num: '02', year: '2026', stack: ['Python', 'pandas', 'matplotlib', 'Data cleaning'], imgFilter: 'none', imgFit: 'contain', link: '#play', linkText: 'Explore it live', hasLink2: true, link2: 'https://github.com/roykamwanza/zambia-food-prices', link2Text: 'View on GitHub', tag: 'Data analysis', kicker: 'Data analysis · Python', title: 'Zambia’s Staple Food Prices', desc: 'Four years of official ZamStats prices for mealie meal and maize, gathered from 10 government bulletins. Prices more than doubled in the drought, then fell back to mid-2023 levels.', role: 'Solo project: data, analysis, charts', outcome: '47 months of prices, cross-checked', img: 'assets/food-prices-chart.png', alt: 'Bar chart comparing food prices in December 2022, at their peak, and in October 2026' },
+      { isHand: false, isCar: false, isFilm: false, imgClass: 'rk-img', num: '01', year: '2026', stack: ['JavaScript', 'Vercel', 'Gemini API'], imgFilter: 'none', imgFit: 'cover', target: '_blank', link: 'https://zambia-take-home-pay.vercel.app', linkText: 'Open the live app', hasLink2: false, link2: '', link2Text: '', tag: 'Web app & AI', kicker: 'Web app · AI', title: 'Zambia Take-Home Pay Calculator', desc: 'Works out PAYE, NAPSA and NHIMA band by band for 2026, finds the salary needed for a target take-home, and has a Gemini-powered assistant that explains each result.', role: 'Solo project: design, build, deploy', outcome: 'Live on Vercel', img: 'assets/pay-calculator.png', alt: 'Zambia Take-Home Pay Calculator showing a K10,000 salary and K8,074 take-home pay' },
+      { isHand: true, isCar: false, isFilm: false, imgClass: 'rk-img', num: '02', target: '', year: '2025–26', stack: ['Python', 'Computer vision', 'Real-time'], imgFilter: 'saturate(.75) sepia(.1)', imgFit: 'cover', link: '#work', linkText: 'Case study coming soon', hasLink2: false, link2: '', link2Text: '', tag: 'Computer Vision & AI', kicker: 'Computer vision · Accessibility', title: 'Zambian Sign Language Recognition', desc: 'Real-time recognition of ZSL from a webcam, so deaf and hearing people can talk without an interpreter.', role: '[Sole engineer: data, model, app]', outcome: '[e.g. accuracy on N signs]', img: 'assets/sign-language.jpg', alt: 'Sign language recognition demo' },
+      { isHand: false, isCar: false, isFilm: false, imgClass: 'rk-img', num: '03', target: '', year: '2026', stack: ['Python', 'pandas', 'matplotlib', 'Data cleaning'], imgFilter: 'none', imgFit: 'contain', link: '#play', linkText: 'Explore it live', hasLink2: true, link2: 'https://github.com/roykamwanza/zambia-food-prices', link2Text: 'View on GitHub', tag: 'Data analysis', kicker: 'Data analysis · Python', title: 'Zambia’s Staple Food Prices', desc: 'Four years of official ZamStats prices for mealie meal and maize, gathered from 10 government bulletins. Prices more than doubled in the drought, then fell back to mid-2023 levels.', role: 'Solo project: data, analysis, charts', outcome: '47 months of prices, cross-checked', img: 'assets/food-prices-chart.png', alt: 'Bar chart comparing food prices in December 2022, at their peak, and in October 2026' },
     ];
     const list0 = filter === 'All' ? all : all.filter((p) => p.tag === filter);
     const tilts = st.cardTilt || {}, fxOn = st.fxOn || {};
