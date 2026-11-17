@@ -310,7 +310,7 @@ ${(fpDistricts || []).map((r, $index) => html`
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="width: 64px; font-size: 13px; color: #5C635E">Data</span>
 <span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">SQL</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Pandas</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Matplotlib</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">KoboToolbox</span></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="width: 64px; font-size: 13px; color: #5C635E">Tools</span>
-<span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Git & GitHub</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">GitHub Actions</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Docker</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Linux</span></div>
+<span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">Git & GitHub</span><span style="padding: 5px 12px; border-radius: 999px; border: 1px solid #CFC9BB; background: #FBFAF6; font-size: 14px; font-weight: 600">GitHub Actions</span></div>
 </div>
 </div>
 </section>
@@ -660,7 +660,7 @@ class Component extends DCLogic {
       { text: 'jumping to work…', color: M }); after = 'work'; }
     else if (c === 'kwacha' || c === 'open kwacha' || c === 'kwacha-net') { out.push({ text: 'opening kwacha-net…', color: M }); open = 'https://kwacha-net.vercel.app'; }
     else if (c === 'prices' || c === 'food' || c === 'food-prices') { out.push({ text: 'jumping to the price explorer…', color: M }); after = 'play'; }
-    else if (c === 'skills' || c === 'stack') out.push({ text: 'build  typescript · react\n       react native · next.js\nback   node.js · fastapi\n       firebase · supabase\n       postgresql\nai     python · pytorch\n       scikit-learn · gemini\ndata   sql · pandas\ntools  git · docker · vercel', color: T });
+    else if (c === 'skills' || c === 'stack') out.push({ text: 'build  typescript · react\n       react native · next.js\nback   node.js · fastapi\n       firebase · supabase\n       postgresql\nai     python · pytorch\n       scikit-learn · gemini\ndata   sql · pandas\ntools  git · github · vercel', color: T });
     else if (c === 'email' || c === 'mail') { out.push({ text: 'opening your email app…', color: M }); open = 'mailto:roykamwanza955@gmail.com?subject=Hello%20Roy'; }
     else if (c === 'github') { out.push({ text: 'opening github.com/roykamwanza…', color: M }); open = 'https://github.com/roykamwanza'; }
     else if (c === 'linkedin') { out.push({ text: 'opening LinkedIn…', color: M }); open = 'https://www.linkedin.com/in/roy-kamwanza-0550b5244/'; }
@@ -821,7 +821,7 @@ class Component extends DCLogic {
       tabText: ({
         arch: '# kwacha-net: how it works\n\nbrowser      calculator\n └▶ /api/chat  vercel · node\n   └▶ gemini   key on server\n     └▶ reply  explains pay\n\n$ kwacha   to open it',
         pipe: '# food-prices: pipeline\n\n10 ZamStats PDFs\n └▶ extract  47 months\n   └▶ clean    pandas\n     └▶ check  overlaps\n       └▶ ship  explorer\n\n$ prices   to explore it',
-        stack: '# stack\n\nbuild   typescript · react\n        next.js · react native\nback    node.js · fastapi\nai      python · pytorch\ndata    sql · pandas\ntools   git · docker · vercel\n\n$ skills   for the full list'
+        stack: '# stack\n\nbuild   typescript · react\n        next.js · react native\nback    node.js · fastapi\nai      python · pytorch\ndata    sql · pandas\ntools   git · github · vercel\n\n$ skills   for the full list'
       })[st.termTab] || '',
       posts: [
         { meta: '[Date] · Computer vision', title: 'Teaching a model to read Zambian Sign Language', summary: 'What it took to collect sign data, train a model and get it recognising signs in real time, plus what I would do differently next time.' },
