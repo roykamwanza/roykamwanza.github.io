@@ -383,7 +383,7 @@ ${(fpDistricts || []).map((r, $index) => html`
 <span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 10px; background: #202522; color: #F5F3ED; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; letter-spacing: -0.02em">CS</span>
 <div style="min-width: 0">
 <div style="font-weight: 700; line-height: 1.3">CS302: Software Engineering</div>
-<div style="font-size: 14px; color: #3F4541">Saylor University · Aug 2026</div>
+<div style="font-size: 14px; color: #3F4541">Saylor Academy · Aug 2026</div>
 
 <div style="margin-top: 6px; font-size: 13px; color: #5C635E">Object-oriented programming, software design</div>
 </div>
