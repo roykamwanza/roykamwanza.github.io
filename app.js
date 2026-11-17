@@ -437,7 +437,7 @@ class Component extends DCLogic {
     this.state = { chars: 0, filter: 'All', email: '', error: '', subscribed: false, tries: 0, menu: false, history: [], cmd: '', copied: 0, copyMsg: '', tx: 0, ty: 0, termTab: 'log', fpProduct: 'bmm', fpView: 'time', fpHover: -1, scr: {}, scrTick: 0, wordIdx: 0, wordTick: 0, localTime: '', cardTilt: {}, fxOn: {}, openPost: -1, kmN: 60, kmSpread: 80, kmSpeed: 5, kmMax: 20, kmPlaying: false, kmStop: '', statA: 0, statB: 0, progress: 0, seen: {}, k: 3, km: null, kmIter: 0, kmPhase: 'idle' };
   }
   log() {
-    return '$ whoami\nroy: engineer + data scientist\n$ cat roy.log\n> studying Computing @ Cavendish\n> building Ride Along @ Imuks\n> teaching a model to read ZSL\n$ status\nopen to full-time roles + projects';
+    return '$ whoami\nroy: software developer, lusaka\n$ cat roy.log\n> studying Computing @ Cavendish\n> shipped kwacha-net (pay + AI)\n> training a model to read ZSL\n$ status\nopen to full-time roles + projects';
   }
   componentDidMount() {
     this.setState({ km: this.kmData() });
@@ -636,12 +636,30 @@ class Component extends DCLogic {
     const c = raw.trim().toLowerCase();
     const P = '#8FD3B2', T = '#F5F3ED', M = '#A9B0AA';
     let out = [{ text: '$ ' + raw, color: P }];
-    let after = null;
+    let after = null, open = null;
     if (!c) out = [];
-    else if (c === 'help') out.push({ text: 'commands: whoami, projects, skills, contact, clear', color: M }, { text: 'psst, there may be a secret one…', color: M });
-    else if (c === 'whoami') out.push({ text: 'Roy Kamwanza. Engineer + data scientist, Zambia.', color: T });
-    else if (c === 'projects' || c === 'ls projects') { out.push({ text: 'zsl-recognition  zambia-food-prices', color: T }, { text: 'jumping to work…', color: M }); after = 'work'; }
-    else if (c === 'skills') out.push({ text: 'build: ts react next.js postgres\nai:    python computer-vision\ndata:  sql pandas docker', color: T });
+    else if (c === 'help' || c === 'ls') out.push(
+      { text: 'projects   my work, one line each', color: T },
+      { text: 'kwacha     open pay calculator', color: T },
+      { text: 'prices     food price explorer', color: T },
+      { text: 'skills     what I work with', color: T },
+      { text: 'email      write to me', color: T },
+      { text: 'github     my code', color: T },
+      { text: 'linkedin   my profile', color: T },
+      { text: 'contact    jump to contact', color: T },
+      { text: 'clear      clear the screen', color: M });
+    else if (c === 'whoami') out.push({ text: 'Roy Kamwanza. Software developer in Lusaka, Zambia: AI, ML and data.', color: T });
+    else if (c === 'projects' || c === 'ls projects') { out.push(
+      { text: 'kwacha-net       live', color: T }, { text: '  pay calculator + AI', color: M },
+      { text: 'zsl-recognition  in progress', color: T }, { text: '  sign language, webcam', color: M },
+      { text: 'food-prices      live below', color: T }, { text: '  4 years of ZamStats data', color: M },
+      { text: 'jumping to work…', color: M }); after = 'work'; }
+    else if (c === 'kwacha' || c === 'open kwacha' || c === 'kwacha-net') { out.push({ text: 'opening kwacha-net…', color: M }); open = 'https://kwacha-net.vercel.app'; }
+    else if (c === 'prices' || c === 'food' || c === 'food-prices') { out.push({ text: 'jumping to the price explorer…', color: M }); after = 'play'; }
+    else if (c === 'skills' || c === 'stack') out.push({ text: 'build  javascript · html/css\n       node.js\nai     python · gemini api\n       computer vision\ndata   pandas · matplotlib\ntools  git · github · vercel', color: T });
+    else if (c === 'email' || c === 'mail') { out.push({ text: 'opening your email app…', color: M }); open = 'mailto:roykamwanza955@gmail.com?subject=Hello%20Roy'; }
+    else if (c === 'github') { out.push({ text: 'opening github.com/roykamwanza…', color: M }); open = 'https://github.com/roykamwanza'; }
+    else if (c === 'linkedin') { out.push({ text: 'opening LinkedIn…', color: M }); open = 'https://www.linkedin.com/in/roy-kamwanza-0550b5244/'; }
     else if (c === 'contact') { out.push({ text: 'opening contact…', color: M }); after = 'contact'; }
     else if (c === 'sudo hire roy' || c === 'hire roy') { out.push({ text: '[sudo] password for recruiter: ••••••••', color: M }, { text: 'access granted. excellent decision.', color: P }, { text: 'opening contact…', color: M }); after = 'contact'; }
     else if (c === 'clear') { this.setState({ history: [], cmd: '' }); return; }
@@ -650,6 +668,7 @@ class Component extends DCLogic {
       const body = document.getElementById('rk-term-body');
       if (body) body.scrollTop = body.scrollHeight;
       if (after) setTimeout(() => this.scrollTo(after), 500);
+      if (open) { if (open.indexOf('mailto:') === 0) window.location.href = open; else window.open(open, '_blank', 'noopener'); }
     });
   }
   renderVals() {
@@ -796,9 +815,9 @@ class Component extends DCLogic {
       tabLog: (st.termTab || 'log') === 'log',
       tabOther: (st.termTab || 'log') !== 'log',
       tabText: ({
-        arch: '# zsl-recognition: how it fits together\n\ncamera frame\n  └─▶ hand landmarks   [your library]\n       └─▶ classifier    [your model]\n            └─▶ label + confidence\n                 └─▶ text on screen',
-        pipe: '# data pipeline\n\nraw data   csv · api · survey\n  └─▶ clean      pandas\n       └─▶ explore    charts · stats\n            └─▶ model      scikit-learn\n                 └─▶ ship       dashboard · api',
-        stack: '# stack\n\nbuild   typescript  react  next.js\n        node  postgresql\nai      python  computer vision\n        [tensorflow]\ndata    sql  pandas\nops     docker  git  linux'
+        arch: '# kwacha-net: how it works\n\nbrowser      calculator\n └▶ /api/chat  vercel · node\n   └▶ gemini   key on server\n     └▶ reply  explains pay\n\n$ kwacha   to open it',
+        pipe: '# food-prices: pipeline\n\n10 ZamStats PDFs\n └▶ extract  47 months\n   └▶ clean    pandas\n     └▶ check  overlaps\n       └▶ ship  explorer\n\n$ prices   to explore it',
+        stack: '# stack\n\nbuild   javascript\n        html/css · node.js\nai      python · gemini api\n        computer vision\ndata    pandas · matplotlib\ntools   git · github · vercel'
       })[st.termTab] || '',
       posts: [
         { meta: '[Date] · Computer vision', title: 'Teaching a model to read Zambian Sign Language', summary: 'What it took to collect sign data, train a model and get it recognising signs in real time, plus what I would do differently next time.' },
@@ -858,7 +877,7 @@ class Component extends DCLogic {
       kmClick: (e) => { const r = e.currentTarget.getBoundingClientRect(); this.kmAdd((e.clientX - r.left) / r.width * 600, (e.clientY - r.top) / r.height * 360); },
       typing: (st.chars || 0) < this.log().length,
       ready: (st.chars || 0) >= this.log().length,
-      history: (st.history || []).length ? st.history : ((st.chars || 0) < this.log().length ? [] : [{ text: "\ntype 'help' and press enter", color: '#A9B0AA' }]),
+      history: (st.history || []).length ? st.history : ((st.chars || 0) < this.log().length ? [] : [{ text: "\ntype help, or try: projects · kwacha · email", color: '#A9B0AA' }]),
       cmd: st.cmd || '',
       onCmd: (e) => this.setState({ cmd: e.target.value }),
       onCmdKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); this.runCommand(e.target.value || ''); } },
