@@ -105,7 +105,6 @@ ${(tabOther) ? html`
 <div style="flex: 1 1 420px; min-width: 0">
 <h2 class="rk-stag" style="--i: 0; margin: 0; font-family: 'Bricolage Grotesque', Manrope, sans-serif; font-weight: 700; font-size: clamp(34px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05">Selected projects</h2>
 </div>
-<p class="rk-stag" style="--i: 1; flex: 0 1 420px; margin: 0; color: #5C635E">Built around real problems in Zambia: one in computer vision, one in data analysis.</p>
 </div>
 <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px">
 ${(projects || []).map((p, $index) => html`
